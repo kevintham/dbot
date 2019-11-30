@@ -2,7 +2,10 @@ import discord
 
 
 client = discord.Client()
-token='NjUwMzY4ODc4MjUzNDQxMDI0.XeKVTg.I-0yIhCgCMX7eAvx6qbDHGfhFQE'
+
+with open("resources/token.txt", "r") as file:
+    token = file.read()
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
