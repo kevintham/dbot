@@ -1,3 +1,4 @@
 language: python
 install: make build
+before_script: make analyze
 script: make run

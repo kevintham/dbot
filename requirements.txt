@@ -1,2 +1,5 @@
 # discord lib
 discord.py==1.2.5
+
+# lint
+flake8==3.7.9
