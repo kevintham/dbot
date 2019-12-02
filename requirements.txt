@@ -3,3 +3,6 @@ discord.py==1.2.5
 
 # lint
 flake8==3.7.9
+
+# safely keep tokens
+python-dotenv==0.10.3

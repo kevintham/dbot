@@ -1,10 +1,13 @@
-import discord
+import os
 
+import discord
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 client = discord.Client()
-
-with open("resources/token.txt", "r") as file:
-    token = file.read()
+token = os.getenv('API_TOKEN')
 
 
 @client.event
