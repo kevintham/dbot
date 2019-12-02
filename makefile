@@ -3,7 +3,7 @@
 build:
 		sudo docker build -t dbot .
 analyze:
-		sudo docker run --rm -it --name dbot dbot flake8 /app
+		sudo docker run --rm -it dbot flake8 /app
 run:
 		sudo docker run --rm -d --name dbot dbot
 stop:
