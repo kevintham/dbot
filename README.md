@@ -3,7 +3,7 @@
 Testing discord bot
 
 ## NOTE:
-add token in resources/token.txt file
+querystring: https://www.fflogs.com:443/v1/parses/character/Elros%20Tar-minyatur/Tonberry/JP?api_key=FFLOGS_API_KEY
 
 ## TODO:
 

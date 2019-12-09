@@ -6,3 +6,6 @@ flake8==3.7.9
 
 # safely keep tokens
 python-dotenv==0.10.3
+
+# requests
+requests==2.22.0
