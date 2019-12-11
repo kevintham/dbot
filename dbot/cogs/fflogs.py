@@ -1,6 +1,8 @@
 import os
+from datetime import datetime
 
 import requests
+import discord
 from discord.ext import commands
 from discord.ext.commands import Cog
 from dotenv import load_dotenv
@@ -27,7 +29,29 @@ class Fflogs(Cog):
         reports = r.json()
         timekeys = {i['startTime']: i for i in reports}
         latest_parse = timekeys[max(timekeys.keys())]
-        await ctx.send(latest_parse)
+        parsed_parse = self.parse_parse(latest_parse)
+        await ctx.send(embed=parsed_parse)
+
+    def parse_parse(self, parse_dict):
+
+        name = parse_dict['characterName']
+        ts = int(parse_dict['startTime'])//1000
+        time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        bossname = parse_dict['encounterName']
+        server = parse_dict['server']
+        dps = parse_dict['total']
+        perc = parse_dict['percentile']
+        job = parse_dict['spec']
+
+        embed = discord.Embed(title="{name}'s Latest Parse".format(name=name))
+        embed.add_field(name="Server", value=server)
+        embed.add_field(name="Job", value=job)
+        embed.add_field(name="Date", value=time)
+        embed.add_field(name="Encounter Name", value=bossname)
+        embed.add_field(name="DPS", value=dps)
+        embed.add_field(name="Percentile", value=perc)
+
+        return embed
 
 
 def setup(bot):
